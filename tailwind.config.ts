@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -19,6 +19,11 @@ const config = {
     },
     extend: {
       colors: {
+        white: "#fff",
+        transparent: "transparent",
+        "primary-color": "hsl(274,55%,29%)",
+        "primary-color-alpha-10": "hsla(274,55%,29%,.1)",
+        "primary-color-alpha-60": "hsla(274,55%,29%,.6)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
