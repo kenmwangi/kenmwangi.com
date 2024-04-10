@@ -134,10 +134,10 @@ export default function Hero() {
             className="rounded-full w-[3rem] md:w-[4rem] my-4 "
           />
         </div>
-        <h2 className="font-extrabold text-3xl lg:text-5xl tracking-tight my-4 font-mono">
+        <h2 className="text-primary-color-alpha-60 font-extrabold text-3xl lg:text-5xl tracking-tight my-4 font-mono">
           Hello, I&apos;m Ken Mwangi
         </h2>
-        <p className="text-base mb-4 font-medium text-primary-color-alpha-60">
+        <p className="text-base mb-4 font-medium text-primary-color">
           Software Engineer | Tech Enthusiast | Value Creator
         </p>
 

@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("text-black bg-white")}>
+    <html lang="en" className={cn("text-black bg-white scroll-smooth")}>
       <body
         className={cn(
           "min-h-screen flex flex-col antialiased bg-background",
