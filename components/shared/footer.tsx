@@ -32,7 +32,7 @@ export default function Footer() {
               </p>
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
                 <Link
-                  href="/"
+                  href="/about"
                   className="hover:text-primary-color transition ease-in-out"
                 >
                   About

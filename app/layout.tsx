@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { baseUrl } from "./sitemap";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/shared/footer";
+import Nav from "@/components/shared/nav";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  // weight: ["400", "500", "700", "900"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -48,11 +52,12 @@ export default function RootLayout({
     <html lang="en" className={cn("text-black bg-white")}>
       <body
         className={cn(
-          "min-h-screen, antialiased bg-background",
+          "min-h-screen flex flex-col antialiased bg-background",
           inter.className
         )}
       >
-        {children}
+        <Nav />
+        <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />
