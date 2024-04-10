@@ -24,7 +24,7 @@ export default function Nav() {
                 <Link
                   href={path}
                   key={path}
-                  className="transition-all hover:text-primary-color hover:underline flex align-middle relative py-1 px-2 m-1"
+                  className="font-mono text-primary-color-alpha-60 transition-all hover:text-primary-color hover:underline flex align-middle relative py-1 px-2 m-1"
                 >
                   {name}
                 </Link>

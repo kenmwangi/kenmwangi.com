@@ -25,7 +25,7 @@ export default function Footer() {
               rights reserved
             </p>
           </div>
-          <div className="flex-grow flex flex-wrap justify-center -mb-10 md:mt-0 mt-10 text-center">
+          <div className="flex-grow flex flex-wrap lg:justify-center -mb-10 md:mt-0 mt-10 text-center">
             <div className="lg:w-1/3 md:w-1/2 w-full px-4">
               <p className="font-semibold text-primary-color-alpha-60 tracking-widest text-sm md:text-left mb-3">
                 LINKS
@@ -60,7 +60,7 @@ export default function Footer() {
                   href="https://github.com/kenmwangi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-2 items-center"
+                  className="flex gap-2 items-center hover:text-primary-color transition ease-in-out"
                 >
                   <Github className="size-4" /> Github
                 </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                   href="https://twitter.com/@ken_cipher"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-2 items-center"
+                  className="flex gap-2 items-center hover:text-primary-color transition ease-in-out"
                 >
                   <Twitter className="size-4" /> Twitter
                 </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
                   href="https://linkedin.com/in/kkmwangi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-2 items-center"
+                  className="flex gap-2 items-center hover:text-primary-color transition ease-in-out"
                 >
                   <Linkedin className="size-4" /> Linkedin
                 </Link>
