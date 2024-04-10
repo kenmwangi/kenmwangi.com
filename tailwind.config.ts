@@ -24,6 +24,8 @@ const config = {
         "primary-color": "hsl(274,55%,29%)",
         "primary-color-alpha-10": "hsla(274,55%,29%,.1)",
         "primary-color-alpha-60": "hsla(274,55%,29%,.6)",
+        'bg-secondary-color': "rgb(242,242,242)",
+        'text-secondary-color': '#737373',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

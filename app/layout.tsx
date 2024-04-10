@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { baseUrl } from "./sitemap";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Footer from "@/components/shared/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,6 +53,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
