@@ -1,6 +1,7 @@
 import { baseUrl } from "@/app/sitemap";
 import { CustomMDX } from "@/components/mdx";
 import { formatDate, getBlogPosts } from "@/lib/formatter";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -88,13 +89,26 @@ export default function BlogDetails({ params }: { params: { slug: string } }) {
       <h1 className="title font-semibold text-2xl tracking-tighter text-primary-color">
         {post.metadata.title}
       </h1>
-      <div className="flex gap-x-4 items-center mt-4 mb-8 text-sm">
+      <div className="flex flex-col gap-4 mt-4 mb-8 text-sm">
         <p className="text-sm text-neutral-600">
-          {formatDate(post.metadata.publishedAt)}
+          Published: {formatDate(post.metadata.publishedAt)}
         </p>
-        <p className="">{post.metadata.author}</p>
+        <div className="flex items-center gap-4">
+          <Image
+            src={`/assets/profile.jpg`}
+            width={56}
+            height={56}
+            alt={`Ken Mwangi`}
+            priority={true}
+            className="rounded-full w-[1rem] md:w-[2rem] my-2"
+          />
+          <div className="flex flex-col font-semibold">
+            <p className="text-primary-color">{post.metadata.author}</p>
+            <p className="text-primary-color-alpha-60 text-xs">Author</p>
+          </div>
+        </div>
       </div>
-
+      <hr />
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
