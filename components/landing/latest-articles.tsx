@@ -2,12 +2,20 @@ import { getBlogPosts } from "@/lib/formatter";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import localFont from "next/font/local";
+
+const aeonik = localFont({
+  src: "../../app/fonts/Aeonik-Regular.otf",
+  display: "swap",
+});
 
 export default function LatestArticles() {
   let allBlogs = getBlogPosts();
   return (
     <>
-      <section className="bg-[#f8f8ff] mb-9 flex flex-col rounded-md border border-primary-color-alpha-10 p-2 sm:p-3">
+      <section
+        className={`bg-[#f8f8ff] mb-9 flex flex-col rounded-md border border-primary-color-alpha-10 p-2 sm:p-3 ${aeonik.className}`}
+      >
         <h2 className="mb-1 px-3 pb-4 pt-2 text-xl font-bold leading-10 text-[#131e2d]">
           Latest Articles
         </h2>

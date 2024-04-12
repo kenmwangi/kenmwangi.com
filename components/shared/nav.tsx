@@ -11,8 +11,8 @@ const navItems = {
   "/about": {
     name: "about",
   },
-  "/blog": {
-    name: "blog",
+  "/projects": {
+    name: "projects",
   },
 };
 
@@ -44,7 +44,19 @@ export default function Nav() {
                   </Link>
                 );
               })}
-              <div className="w-px h-4 text-[rgba(0,21,47,.15)] mx-2" />
+              <span className="mx-1">|</span>
+              <Link
+                href={`/blog`}
+                // className="transition-all flex font-normal text-lg p-[14px] pb-[12px] bg-[rgba(112,112,127,0)] text-[#40546c] hover:text-[#1066ef]"
+                className={
+                  isActive("/blog")
+                    ? "text-[#1066ef] p-[14px] pb-[12px]"
+                    : "transition-all flex font-normal text-lg p-[14px] pb-[12px] bg-[rgba(112,112,127,0)] text-[#40546c] hover:text-[#1066ef]"
+                }
+              >
+                blog
+              </Link>
+              {/* <div className="w-px h-4 text-[rgba(0,21,47,.15)] mx-2" /> */}
             </nav>
           </div>
         </div>

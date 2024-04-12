@@ -18,7 +18,7 @@ const features: {
     name: "Tech",
     description: (
       <>
-        <ul className="space-y-1">
+        <ul className={`space-y-1 ${aeonik.className}`}>
           {["Nextjs", "Typescript", "Server and Serverless tech"].map(
             (item) => (
               <li className="flex items-center gap-3" key={item}>
@@ -51,7 +51,7 @@ const features: {
     name: "Blog",
     description: (
       <>
-        <ul className="space-y-1">
+        <ul className={`space-y-1 ${aeonik.className}`}>
           {["Software Development", "Projects", "Technical writing"].map(
             (item) => (
               <li className="flex items-center gap-3" key={item}>
@@ -126,7 +126,7 @@ export default function Hero() {
   }, [featureSelected, hasClicked]);
 
   return (
-    <section className={`py-12`}>
+    <section className={`py-12 ${aeonik.className}`}>
       <div className=" max-w-3xl">
         <p className="font-medium text-sm mb-3 text-[#1f2f42]">
           const time: string = &quot;Today&quot; 🫣️;
