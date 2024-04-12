@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -11,6 +12,11 @@ import Nav from "@/components/shared/nav";
 const inter = Inter({
   subsets: ["latin"],
   // weight: ["400", "500", "700", "900"],
+});
+
+const aeonik = localFont({
+  src: "./fonts/Aeonik-Regular.otf",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -49,11 +55,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("text-black bg-white scroll-smooth")}>
+    <html lang="en" className={cn("scroll-smooth")}>
       <body
         className={cn(
-          "min-h-screen flex flex-col antialiased bg-background",
-          inter.className
+          "min-h-screen flex flex-col text-base antialiased bg-white text-[#131e2d]",
+          aeonik.className
         )}
       >
         <Nav />
