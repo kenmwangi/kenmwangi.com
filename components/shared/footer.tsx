@@ -1,10 +1,18 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import localFont from "next/font/local";
+
+const aeonik = localFont({
+  src: "../../app/fonts/Aeonik-Regular.otf",
+  display: "swap",
+});
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-secondary-color text-text-secondary-color">
+    <footer
+      className={`border-t border-[rgba(19,30,45,.1)] pt-[3em] pb-[1em] ${aeonik.className}`}
+    >
       <section className="max-w-7xl mx-auto px-8 py-20">
         <div className="flex lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-96 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
@@ -13,46 +21,46 @@ export default function Footer() {
               aria-current="page"
               className="flex gap-2 justify-center md:justify-start items-center"
             >
-              <strong className="font-extrabold text-primary-color-alpha-60 tracking-tight text-base md:text-lg">
+              <strong className="font-extrabold text-[#131e2d] tracking-tight text-base md:text-lg">
                 Ken Mwangi
               </strong>
             </Link>
-            <p className="mt-3 text-sm">
+            <p className="mt-3 text-sm text-[#2e4057]">
               Sharing software experiences and interests.{" "}
             </p>
-            <p className="mt-5 text-sm text-text-secondary-color/80">
+            <p className="mt-5 text-sm text-[#2e4057]">
               Copyright &copy; Ken Mwangi, {new Date().getFullYear()} - All
               rights reserved
             </p>
           </div>
           <div className="flex-grow flex flex-wrap lg:justify-center -mb-10 md:mt-0 mt-10 text-center">
             <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-              <p className="font-semibold text-primary-color-alpha-60 tracking-widest text-sm md:text-left mb-3">
+              <p className="font-semibold text-[#131e2d] tracking-widest text-sm md:text-left mb-3">
                 LINKS
               </p>
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
                 <Link
                   href="/about"
-                  className="hover:text-primary-color transition ease-in-out"
+                  className="hover:text-[#1066ef] text-[#2e4057] transition ease-in-out"
                 >
                   About
                 </Link>
                 <Link
                   href="/blog"
-                  className="hover:text-primary-color transition ease-in-out"
+                  className="hover:text-[#1066ef] text-[#2e4057] transition ease-in-out"
                 >
                   Blog
                 </Link>
                 <Link
                   href="/projects"
-                  className="hover:text-primary-color transition ease-in-out"
+                  className="hover:text-[#1066ef] text-[#2e4057] transition ease-in-out"
                 >
                   Projects
                 </Link>
               </div>
             </div>
             <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-              <div className="uppercase text-primary-color-alpha-60 font-semibold tracking-widest text-sm md:text-left mb-3">
+              <div className="uppercase text-[#131e2d] font-semibold tracking-widest text-sm md:text-left mb-3">
                 Let&apos;s Connect
               </div>
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
@@ -60,7 +68,7 @@ export default function Footer() {
                   href="https://github.com/kenmwangi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-2 items-center hover:text-primary-color transition ease-in-out"
+                  className="flex gap-2 items-center text-[#2e4057] hover:text-[#1066ef] transition ease-in-out"
                 >
                   <svg
                     viewBox="0 0 256 250"
@@ -78,7 +86,7 @@ export default function Footer() {
                   href="https://twitter.com/@ken_cipher"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-2 items-center hover:text-primary-color transition ease-in-out"
+                  className="flex gap-2 items-center text-[#2e4057] hover:text-[#1066ef] transition ease-in-out"
                 >
                   <svg
                     viewBox="0 0 256 209"
@@ -86,11 +94,9 @@ export default function Footer() {
                     height="15"
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid"
+                    fill="currentColor"
                   >
-                    <path
-                      d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
-                      fill="currentColor"
-                    />
+                    <path d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45" />
                   </svg>{" "}
                   Twitter
                 </Link>
@@ -98,7 +104,7 @@ export default function Footer() {
                   href="https://linkedin.com/in/kkmwangi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex gap-2 items-center hover:text-primary-color transition ease-in-out"
+                  className="flex gap-2 items-center text-[#2e4057] hover:text-[#1066ef] transition ease-in-out"
                 >
                   <svg
                     width="15"
@@ -106,11 +112,9 @@ export default function Footer() {
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid"
                     viewBox="0 0 256 256"
+                    fill="currentColor"
                   >
-                    <path
-                      d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453"
-                      fill="currentColor"
-                    />
+                    <path d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453" />
                   </svg>{" "}
                   Linkedin
                 </Link>

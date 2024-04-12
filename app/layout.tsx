@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   },
 };
 
+// bg-[#fcfdfe]
+// bg-[#f8f8ff]
+// bg-[#fffff0]
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,7 +61,7 @@ export default function RootLayout({
     <html lang="en" className={cn("scroll-smooth")}>
       <body
         className={cn(
-          "min-h-screen flex flex-col text-base antialiased bg-white text-[#131e2d]",
+          "min-h-screen flex flex-col text-base antialiased bg-[#fcfdfe] text-[#131e2d]",
           aeonik.className
         )}
       >

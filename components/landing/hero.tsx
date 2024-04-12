@@ -2,6 +2,13 @@
 import { Notebook, NotebookPen, SquareCode } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import localFont from "next/font/local";
+
+const aeonik = localFont({
+  src: "../../app/fonts/Aeonik-Regular.otf",
+  display: "swap",
+});
+
 const features: {
   name: String;
   description: JSX.Element;
@@ -51,7 +58,7 @@ const features: {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
-                  fill="currentColor"
+                  fill="#1066ef"
                   className="w-[18px] h-[18px] inline shrink-0 opacity-80"
                 >
                   <path
@@ -119,12 +126,12 @@ export default function Hero() {
   }, [featureSelected, hasClicked]);
 
   return (
-    <section className="py-12">
+    <section className={`py-12`}>
       <div className=" max-w-3xl">
-        <p className="font-medium text-sm font-mono mb-3 text-primary-color-alpha-60">
-          const time:string = &quot;Today&quot; 🫣️;
+        <p className="font-medium text-sm mb-3 text-[#1f2f42]">
+          const time: string = &quot;Today&quot; 🫣️;
         </p>
-        <div className="backdrop-grayscale bg-white/30">
+        <div className="backdrop-grayscale bg-white/30 w-fit">
           <Image
             src={`/assets/profile.jpg`}
             width={256}
@@ -134,14 +141,14 @@ export default function Hero() {
             className="rounded-full w-[3rem] md:w-[4rem] my-4 "
           />
         </div>
-        <h2 className="text-primary-color-alpha-60 font-extrabold text-3xl lg:text-5xl tracking-tight my-4 font-mono">
+        <h2 className="text-[#1f2f42] font-extrabold text-3xl lg:text-5xl tracking-tight my-4">
           Hello, I&apos;m Ken Mwangi
         </h2>
-        <p className="text-base mb-4 font-medium text-primary-color">
+        <p className="text-base mb-4 font-medium text-[#1066ef]">
           Software Engineer | Tech Enthusiast | Value Creator
         </p>
 
-        <p className="text-text-secondary-color leading-relaxed mb-8 lg:text-lg">
+        <p className="text-[#2e4057] leading-relaxed tracking-wide mb-8 lg:text-lg">
           I&apos;m passionate about leveraging technology to solve real-world
           problems and enhance user experiences. As a software engineer, I
           thrive on crafting elegant solutions to complex challenges and pushing
@@ -161,8 +168,8 @@ export default function Hero() {
             <span
               className={`duration-100 ${
                 featureSelected === feature.name
-                  ? "text-primary-color-alpha-10"
-                  : "text-text-secondary-color group-hover:text-primary-color"
+                  ? "text-[rgba(0,21,47,.15)]"
+                  : "[#1066ef] group-hover:text-primary-color"
               }`}
             >
               {feature.svg}
@@ -170,8 +177,8 @@ export default function Hero() {
             <span
               className={`font-semibold text-sm ${
                 featureSelected === feature.name
-                  ? "text-primary-color"
-                  : "text-primary-color-alpha-60"
+                  ? "text-[rgba(0,21,47,.15)]"
+                  : "text-[#1066ef]"
               }`}
             >
               {feature.name}
@@ -180,9 +187,9 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="bg-bg-secondary-color">
+      <div className="bg-[#f8f8ff]">
         <div className="max-w-3xl px-4 flex flex-col md:flex-row justify-center md:justify-start md:items-center gap-12">
-          <div className="text-primary-color-alpha-60 leading-relaxed space-y-4 px-12 md:px-0 py-12 max-w-xl animate-opacity">
+          <div className="text-[#40546c] leading-relaxed space-y-4 px-12 md:px-0 py-12 max-w-xl animate-opacity">
             <h3 className="font-semibold text-lg">
               {features.find((f) => f.name === featureSelected)?.name}
             </h3>

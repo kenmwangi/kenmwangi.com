@@ -86,7 +86,7 @@ export default function BlogDetails({ params }: { params: { slug: string } }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter text-primary-color">
+      <h1 className="title font-semibold text-2xl leading-relaxed text-[#1066ef]">
         {post.metadata.title}
       </h1>
       <div className="flex flex-col gap-4 mt-4 mb-8 text-sm">
@@ -103,8 +103,8 @@ export default function BlogDetails({ params }: { params: { slug: string } }) {
             className="rounded-full w-[1rem] md:w-[2rem] my-2"
           />
           <div className="flex flex-col font-semibold">
-            <p className="text-primary-color">{post.metadata.author}</p>
-            <p className="text-primary-color-alpha-60 text-xs">Author</p>
+            <p className="text-[#00152f">{post.metadata.author}</p>
+            <p className="text-[#2e4057] text-xs">Author</p>
           </div>
         </div>
       </div>
