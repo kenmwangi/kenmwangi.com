@@ -71,8 +71,10 @@ export default function About() {
                   <span className="">ALX Africa</span>
                 </div>
                 <div className="opacity-70 flex flex-col space-y-1">
-                  <span>Software Engineering (Fullstack development)</span>
-                  <span>2022 - 2023</span>
+                  <span className="t">
+                    Software Engineering (Fullstack development)
+                  </span>
+                  <span className="">2022 - 2023</span>
                 </div>
               </div>
               <div className="flex flex-col gap-y-3 text-lg leading-none text-[#1f2f42]">
@@ -80,8 +82,8 @@ export default function About() {
                   <span className="">Multimedia University of Kenya</span>
                 </div>
                 <div className="opacity-70 flex flex-col space-y-1">
-                  <span>B.S.C Maths & Computer Science</span>
-                  <span>2014 - 2018</span>
+                  <span className="">B.S.C Maths & Computer Science</span>
+                  <span className="">2014 - 2018</span>
                 </div>
               </div>
             </div>

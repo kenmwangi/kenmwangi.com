@@ -14,31 +14,32 @@ export default function Footer() {
       className={`border-t border-[rgba(19,30,45,.1)] pt-[3em] pb-[1em] ${aeonik.className}`}
     >
       <section className="max-w-7xl mx-auto px-8 py-20">
-        <div className="flex lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="flex items-start justify-between md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-96 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
             <Link
               href="/"
               aria-current="page"
-              className="flex gap-2 justify-center md:justify-start items-center"
+              className="flex gap-2 md:justify-start items-center"
             >
               <strong className="font-extrabold text-[#131e2d] tracking-tight text-base md:text-lg">
                 Ken Mwangi
               </strong>
             </Link>
-            <p className="mt-3 text-sm text-[#2e4057]">
+            <p className="mt-3 text-sm text-[#2e4057] text-start">
               Sharing software experiences and interests.{" "}
             </p>
-            <p className="mt-5 text-sm text-[#2e4057]">
+            <p className="mt-5 text-sm text-[#2e4057] text-start">
               Copyright &copy; Ken Mwangi, {new Date().getFullYear()} - All
               rights reserved
             </p>
           </div>
-          <div className="flex-grow flex flex-wrap lg:justify-center -mb-10 md:mt-0 mt-10 text-center">
-            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-              <p className="font-semibold text-[#131e2d] tracking-widest text-sm md:text-left mb-3">
-                LINKS
-              </p>
-              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+
+          <div className="mt-8 lg:mt-0 max-w-[700px] grow lg:flex lg:flex-row">
+            <div className="flex grow flex-row flex-wrap lg:flex-nowrap">
+              <div className=" mr-8 flex  grow basis-[100px] flex-col space-y-2 lg:my-0 text-sm">
+                <p className="font-semibold text-[#131e2d] tracking-widest text-sm md:text-left mb-3">
+                  LINKS
+                </p>
                 <Link
                   href="/about"
                   className="hover:text-[#1066ef] text-[#2e4057] transition ease-in-out"
@@ -58,12 +59,11 @@ export default function Footer() {
                   Projects
                 </Link>
               </div>
-            </div>
-            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
-              <div className="uppercase text-[#131e2d] font-semibold tracking-widest text-sm md:text-left mb-3">
-                Let&apos;s Connect
-              </div>
-              <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
+
+              <div className="my-5 mr-8 flex  grow basis-[100px] flex-col space-y-2 lg:my-0 text-sm">
+                <div className="w-fit uppercase text-[#131e2d] font-semibold tracking-widest text-sm md:text-left mb-3">
+                  Let&apos;s Connect
+                </div>
                 <Link
                   href="https://github.com/kenmwangi"
                   target="_blank"

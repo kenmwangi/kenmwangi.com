@@ -23,7 +23,7 @@ export default function Nav() {
     <>
       <div className="border-b border-[rgba(19,30,45,.1)] bg-transparent pt-[2em] pb-[2em]">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center flex-col lg:flex-row justify-between">
             <Link href="/" className="font-semibold text-lg">
               kenmwangi
             </Link>

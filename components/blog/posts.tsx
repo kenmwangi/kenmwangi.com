@@ -20,7 +20,7 @@ export function BlogPosts() {
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group/post flex grow overflow-hidden shadow-sm rounded-md border border-solid border-gray-200 no-underline transition ease-linear hover:border-[#1066ef] flex-col"
+            className="group/post  bg-white flex grow overflow-hidden shadow-sm rounded-md border border-solid border-gray-200 no-underline transition ease-linear hover:border-[#1066ef] flex-col"
           >
             <div className="flex grow flex-col lg:flex-row gap-4 p-5 sm:p-6">
               <p className="text-2xl flex items-center rounded-md  bg-[#fffff0] text-[#131e2d] size-10 justify-center font-extrabold">

@@ -155,7 +155,7 @@ export default function Hero() {
           the boundaries of what&apos;s achievable in the digital realm.
         </p>
       </div>
-      <div className="grid grid-cols-4 md:flex justify-start gap-4 md:gap-12 max-md:px-8 mb-8">
+      {/* <div className="grid grid-cols-4 md:flex justify-start gap-4 md:gap-12 max-md:px-8 mb-8">
         {features.map((feature, idx) => (
           <span
             key={idx}
@@ -198,7 +198,7 @@ export default function Hero() {
           </div>
         </div>
         <p className="opacity-0" ref={featuresEndRef}></p>
-      </div>
+      </div> */}
     </section>
   );
 }
