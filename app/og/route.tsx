@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const postTitle = searchParams.get("title") || "Ken Mwangi";
 
   const font = fetch(
-    new URL("../../../public/fonts/Aeonik-Bold.otf", import.meta.url)
+    new URL("../../public/fonts/Aeonik-Bold.otf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const fontData = await font;
