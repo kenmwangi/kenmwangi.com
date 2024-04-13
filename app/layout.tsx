@@ -35,6 +35,19 @@ export const metadata: Metadata = {
     siteName: "Ken Mwangi",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "http://localhost:3000/api/og?title=Ken Mwangi", // Dynamic og route
+        width: 800,
+        height: 600,
+      },
+      {
+        url: "http://localhost:3000/api/og?title=Ken Mwangi", // Dynamic og route
+        width: 1800,
+        height: 1600,
+        alt: "My custom alt",
+      },
+    ],
   },
   robots: {
     index: true,
