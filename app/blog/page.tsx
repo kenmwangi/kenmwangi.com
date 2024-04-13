@@ -1,11 +1,11 @@
 import { BlogPosts } from "@/components/blog/posts";
+import { getSEOTags } from "@/lib/seo";
 import React from "react";
 
-export const metadata = {
-  title: "Blog",
-  description:
-    "Blog about software development journey,technical writing and experiences",
-};
+export const metadata = getSEOTags({
+  title: "Blog | Ken Mwangi",
+  canonicalUrlRelative: "/blog",
+});
 
 export default function Page() {
   return (

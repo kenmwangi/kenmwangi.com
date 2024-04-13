@@ -2,10 +2,16 @@ import React from "react";
 import { MoveUpRight } from "lucide-react";
 import Link from "next/link";
 import localFont from "next/font/local";
+import { getSEOTags } from "@/lib/seo";
 
 const aeonik = localFont({
   src: "../../app/fonts/Aeonik-Regular.otf",
   display: "swap",
+});
+
+export const metadata = getSEOTags({
+  title: "About | Ken Mwangi",
+  canonicalUrlRelative: "/about",
 });
 
 export default function About() {

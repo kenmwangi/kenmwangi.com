@@ -1,12 +1,16 @@
 import React from "react";
 import localFont from "next/font/local";
 import { Clock, Wrench } from "lucide-react";
+import { getSEOTags } from "@/lib/seo";
 
 const aeonik = localFont({
   src: "../../app/fonts/Aeonik-Regular.otf",
   display: "swap",
 });
-
+export const metadata = getSEOTags({
+  title: "Projects | Ken Mwangi",
+  canonicalUrlRelative: "/projects",
+});
 export default function Projects() {
   return (
     <section className={`py-8 ${aeonik.className}`}>

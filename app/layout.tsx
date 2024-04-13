@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "@/components/shared/footer";
 import Nav from "@/components/shared/nav";
+import { getSEOTags } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,48 +20,7 @@ const aeonik = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: "Home | Ken Mwangi",
-    template: "%s | Ken Mwangi",
-  },
-  description:
-    "Personal portfolio for Ken Mwangi showcasing fullstack development, blog, personal development and technical writing",
-  openGraph: {
-    title: "Ken Mwangi",
-    description:
-      "Personal portfolio for Ken Mwangi showcasing fullstack development, blog, personal development and technical writing",
-    url: baseUrl,
-    siteName: "Ken Mwangi",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "http://localhost:3000/api/og?title=Ken Mwangi", // Dynamic og route
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "http://localhost:3000/api/og?title=Ken Mwangi", // Dynamic og route
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
-      },
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-      "max-snippet": -1,
-    },
-  },
-};
+export const metadata = getSEOTags();
 
 // bg-[#fcfdfe]
 // bg-[#f8f8ff]
