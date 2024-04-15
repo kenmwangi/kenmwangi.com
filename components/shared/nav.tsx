@@ -2,7 +2,6 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 const navItems = {
   "/": {
@@ -32,7 +31,8 @@ export default function Nav() {
                 return (
                   <Link
                     href={path}
-                    key={path}
+                    key={name}
+                    // text-[#1066ef] p-[14px] pb-[12px]
                     // className="transition-all flex font-normal text-lg p-[14px] pb-[12px] bg-[rgba(112,112,127,0)] text-[#40546c] hover:text-[#1066ef]"
                     className={
                       isActive(path)
