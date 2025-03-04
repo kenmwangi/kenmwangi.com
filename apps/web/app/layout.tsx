@@ -22,7 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      data-new-gr-c-s-check-loaded="14.1224.0"
+      data-gr-ext-installed=""
+      cz-shortcut-listen="true"
+    >
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
