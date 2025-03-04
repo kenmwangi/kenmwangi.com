@@ -20,8 +20,11 @@ COPY --from=pruner /app/out/full .
 RUN npm install -g npm
 RUN npm install --frozen-lockfile
 
-# Step 3: Generate and Apply Changesets
-RUN npx changeset version
+# Ensure Changesets is installed
+RUN npm install -g changesets
+
+# Skip changeset versioning if the .changeset folder is missing
+RUN if [ -d ".changeset" ]; then npx changeset version; else echo "No changesets found, skipping versioning."; fi
 RUN npm install --frozen-lockfile
 
 # Step 4: Build the Project
