@@ -1,84 +1,113 @@
-# Turborepo starter
+# Personal Portfolio Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+This is a **Turbo monorepo** setup for a **personal portfolio**, featuring:
 
-## Using this example
+- **Backend:** [NestJS](https://nestjs.com/)
+- **Frontend:** [Next.js](https://nextjs.org/)
+- **Package Management:** [Turborepo](https://turbo.build/)
 
-Run the following command:
+## 📂 Project Structure
+
+```
+📦 my-portfolio-monorepo
+├── apps
+│   ├── nextjs-frontend  # Next.js application
+│   ├── nestjs-backend   # NestJS backend
+│
+├── packages
+│   ├── ui               # Shared UI components
+│   ├── types            # Shared TypeScript types
+│   ├── eslint-config    # Shared ESLint configuration
+│   ├── tsconfig         # Shared TypeScript configuration
+│
+├── .github              # CI/CD workflows
+├── package.json
+├── turbo.json           # Turborepo configuration
+└── README.md
+```
+
+## 🚀 Getting Started
+
+### 1️⃣ Install Dependencies
+
+Ensure you have **Node.js (>=18)** and **npm** installed.
 
 ```sh
-npx create-turbo@latest
+npm install
 ```
 
-## What's inside?
+### 2️⃣ Start Development Server
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```sh
+npm run dev  # Starts both frontend & backend
 ```
 
-### Develop
+- **Frontend** runs on `http://localhost:3000`
+- **Backend** runs on `http://localhost:5000`
 
-To develop all apps and packages, run the following command:
+You can also run them separately:
 
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+```sh
+npm run dev --workspace=nextjs-frontend
+npm run dev --workspace=nestjs-backend
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 🛠️ Scripts
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+| Command          | Description                        |
+| ---------------- | ---------------------------------- |
+| `npm run dev`    | Run frontend & backend in parallel |
+| `npm run build`  | Build all applications             |
+| `npm run lint`   | Run linting across the monorepo    |
+| `npm run format` | Format code using Prettier         |
+| `npm run test`   | Run tests across the monorepo      |
+
+## 🔧 Environment Variables
+
+Create `.env` files inside `apps/nextjs-frontend` and `apps/nestjs-backend`.
+
+**Frontend (**``**)**:
 
 ```
-npx turbo link
+NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
-## Useful Links
+**Backend (**``**)**:
 
-Learn more about the power of Turborepo:
+```
+PORT=5000
+DATABASE_URL=your_database_url_here
+JWT_SECRET=your_secret_key
+```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## 📦 Deployment
+
+### 🚀 Vercel (Frontend)
+
+```sh
+vercel --prod
+```
+
+### 🚀 Docker (Backend)
+
+```sh
+docker build -t nestjs-backend .
+docker run -p 5000:5000 nestjs-backend
+```
+
+## 🌟 Features
+
+- 🚀 **Turbo Monorepo**: Optimized package management.
+- 🔥 **NestJS + Next.js**: Full-stack development.
+- ⚡ **TypeScript Support**.
+- 🏗 **Modular Architecture**: Shared UI, types, and configs.
+- ✅ **ESLint & Prettier**: Code quality ensured.
+
+## 👤 Author
+
+**[Ken Mwangi]** – [Ken Mwangi](https://kenmwangi.com)\
+📧 Contact: [hello@kenmwangi.com](mailto:hello@kenmwangi.com)
+
+## ⭐️ Show Your Support
+
+If you like this project, consider giving it a ⭐️ on [GitHub](https://github.com/kenmwangi.com)! 🎉
