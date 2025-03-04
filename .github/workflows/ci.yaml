@@ -26,3 +26,6 @@ jobs:
         run: npm run build
       - name: Test
         run: npm run test
+
+      - name: Generate Changeset
+        run: npx changeset --empty
