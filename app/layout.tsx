@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { generateWebSiteSchema } from "@/lib/structured-data";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,6 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://kenmwangi.com"),
   title: {
     default: "Home | Ken Mwangi",
     template: "%s | Ken Mwangi",
@@ -59,6 +62,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  verification: {
+    google: "google-site-verification-code", // Replace with actual verification code
+  },
 }
 
 export default function RootLayout({
@@ -66,6 +78,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+   const websiteSchema = generateWebSiteSchema("Ken Mwangi - Fullstack Engineer", "https://kenmwangi.com")
   return (
     <html lang="en">
       <body
@@ -77,6 +90,12 @@ export default function RootLayout({
         {children}
         </main>
         {/* <Footer/> */}
+
+        <Script
+          id="schema-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       </body>
     </html>
   );

@@ -29,13 +29,13 @@ export function MainContent() {
   const filters = ["All", "Web Apps", "Mobile", "Design"]
 
   return (
-    <main className="max-w-4xl mx-auto px-8 py-16">
+    <main className="max-w-4xl mx-auto px-8 py-12">
       {/* Hero Section */}
-      <section id="home" className="mb-20">
+      <section id="home" className="mb-10">
         <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-8">
           <div className="flex flex-col md:flex-row items-start gap-8">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 rounded-2xl overflow-hidden">
+              <div className="w-20 h-20 rounded-2xl border-[#E5E5EA] border overflow-hidden">
                 <Image
                   src="/assets/ken.jpeg"
                   alt="Ken Mwangi"
@@ -48,7 +48,7 @@ export function MainContent() {
 
             <div className="flex-1">
               <h1 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 leading-tight">
-                Ken Mwangi is a fullstack engineer who builds things
+                <span className="bg-[#D5F0FA] text-[#0091F5] px-2 rounded">Ken Mwangi</span> is a fullstack engineer who builds things
               </h1>
 
               <div className="text-gray-600 space-y-3 mb-6">
@@ -58,7 +58,7 @@ export function MainContent() {
                   <Link
                     href="https://african-realestate.com"
                     target="_blank"
-                    className="text-gray-900 font-medium hover:underline inline-flex items-center gap-1"
+                    className="hover:text-[#0091F5] transition-all text-gray-900 font-medium hover:underline inline-flex items-center gap-1"
                   >
                     african-realestate.com
                     <ArrowUpRight className="h-3 w-3" />
@@ -75,17 +75,17 @@ export function MainContent() {
                 <Link
                   href="https://www.linkedin.com/in/kkmwangi"
                   target="_blank"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium text-gray-700 transition-colors"
+                  className="group inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium text-gray-700 transition-colors"
                 >
-                  <Linkedin className="h-4 w-4" />
+                  <Linkedin className="h-4 w-4 group-hover:text-[#0091F5]" />
                   LinkedIn
                 </Link>
                 <Link
                   href="https://github.com/kenmwangi"
                   target="_blank"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium text-gray-700 transition-colors"
+                  className="group inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-medium text-gray-700 transition-colors"
                 >
-                  <Github className="h-4 w-4" />
+                  <Github className="h-4 w-4 group-hover:text-[#3C3C43]" />
                   GitHub
                 </Link>
               </div>
