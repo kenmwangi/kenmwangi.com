@@ -2,15 +2,17 @@ import { prisma } from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
 export async function GET() {
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    orderBy: { createdAt: "desc" },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  })
+//   const posts = await prisma.post.findMany({
+//     where: { published: true },
+//     orderBy: { createdAt: "desc" },
+//     include: {
+//       author: {
+//         select: { name: true },
+//       },
+//     },
+//   })
+
+const posts:any = []
 
   const baseUrl = "https://kenmwangi.dev"
   const rssXml = `<?xml version="1.0" encoding="UTF-8" ?>
@@ -24,7 +26,7 @@ export async function GET() {
   <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
   ${posts
     .map(
-      (post) => `
+      (post:any) => `
     <item>
       <title><![CDATA[${post.title}]]></title>
       <link>${baseUrl}/blog/${post.slug}</link>

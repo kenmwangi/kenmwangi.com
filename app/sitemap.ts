@@ -3,10 +3,12 @@ import { prisma } from "@/lib/prisma"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Get all blog posts
-  const posts = await prisma.post.findMany({
-    where: { published: true },
-    select: { slug: true, updatedAt: true },
-  })
+//   const posts = await prisma.post.findMany({
+//     where: { published: true },
+//     select: { slug: true, updatedAt: true },
+//   })
+
+  const posts:any[] = []
 
   const blogEntries = posts.map((post) => ({
     url: `https://kenmwangi.com/blog/${post.slug}`,
