@@ -1,63 +1,52 @@
-import type React from "react";
-import type { Metadata, Viewport } from "next";
-import { Mulish } from "next/font/google";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
-const inter = Mulish({ subsets: ["latin"] });
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kenmwangi.com"),
   title: {
-    default: "Ken Mwangi | Full Stack Engineer",
+    default: "Home | Ken Mwangi",
     template: "%s | Ken Mwangi",
   },
   description:
-    "Ken Mwangi is a seasoned Full Stack Engineer with expertise in microservices, cloud services, and modern web technologies.",
-  keywords: [
-    "Ken Mwangi",
-    "Full Stack Engineer",
-    "Golang",
-    "AWS",
-    "GCP",
-    "Microservices",
-    "Web Development",
-    "African Real Estate",
-  ],
-  authors: [{ name: "Ken Mwangi", url: "https://kenmwangi.com" }],
+    "Fullstack engineer specializing in Go, Python, Next.js, Docker and AWS. Currently building the future of real estate at african-realestate.com",
+  keywords: ["Ken Mwangi", "Fullstack Engineer", "Go","Docker", "Python", "React", "Next.js", "Node.js", "TypeScript", "Web Developer", "Kenya"],
+  authors: [{ name: "Ken Mwangi" }],
   creator: "Ken Mwangi",
-  publisher: "Ken Mwangi",
-  formatDetection: {
-    email: true,
-    address: true,
-    telephone: true,
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://kenmwangi.com",
-    title: "Ken Mwangi | Full Stack Engineer",
+    title: "Ken Mwangi - Fullstack Engineer",
     description:
-      "Ken Mwangi is a seasoned Full Stack Engineer with expertise in microservices, cloud services, and modern web technologies.",
+      "Fullstack engineer specializing in Go, Python, Next.js, Docker and AWS. Currently building the future of real estate at african-realestate.com",
     siteName: "Ken Mwangi Portfolio",
     images: [
       {
         url: "/assets/ken.jpeg",
         width: 1200,
         height: 630,
-        alt: "Ken Mwangi - Full Stack Engineer",
+        alt: "Ken Mwangi - Fullstack Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ken Mwangi | Full Stack Engineer",
-    description:
-      "Ken Mwangi is a seasoned Full Stack Engineer with expertise in microservices, cloud services, and modern web technologies.",
-    creator: "@ken_cipher",
+    title: "Ken Mwangi - Fullstack Engineer",
+    description: "Fullstack engineer specializing in Go, Python, Next.js, Docker and AWS.",
     images: ["/assets/ken.jpeg"],
-  },
-  alternates: {
-    canonical: "https://kenmwangi.com",
   },
   robots: {
     index: true,
@@ -70,38 +59,25 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-    other: {
-      me: ["mailto:kenmwangi071@gmail.com", "https://twitter.com/ken_cipher"],
-    },
-  },
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#111111" },
-  ],
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-};
+}
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      </head>
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {/* <Header/> */}
+        <main>
+
+        {children}
+        </main>
+        {/* <Footer/> */}
+      </body>
     </html>
   );
 }

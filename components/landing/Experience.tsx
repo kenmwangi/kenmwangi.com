@@ -1,114 +1,77 @@
-import { Briefcase } from "lucide-react";
-import Image from "next/image";
-import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Building, Calendar } from "lucide-react"
 
-export default function Experience() {
+export function ExperienceSection() {
   const experiences = [
     {
-      id: 1,
-      role: "Lead Engineer",
-      company: "African Real Estate",
-      period: "2024 - Present",
-      location: "Nairobi, Kenya",
-      logo: "/assets/logo.png",
+      title: "Fullstack Engineer",
+      company: "african-realestate.com",
+      period: "2022 - Present",
       description:
-        "Leading the development of a microservices-based platform that has grown from zero to over 100 agents in 6 months. Implemented AWS services for scalability and performance optimization.",
-      achievements: [
-        "Designed and implemented microservices architecture using AWS services",
-        "Grew user base from zero to over 100 agents in 6 months",
-        "Improved SEO rankings, resulting in 150% increase in organic traffic",
-        "Implemented CI/CD pipelines for streamlined deployment",
-      ],
+        "Developing comprehensive real estate solutions connecting buyers, sellers, and agents across Africa. Building scalable web applications with modern technologies.",
+      technologies: ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind CSS"],
     },
     {
-      id: 2,
-      role: "Senior Software Engineer",
-      company: "Kasuku Tech",
-      period: "2021 - 2024",
-
-      location: "Remote",
-      logo: Briefcase,
+      title: "Frontend Developer",
+      company: "Tech Solutions Ltd",
+      period: "2020 - 2022",
       description:
-        "This is an excellent company and they reward their employees. It's becoming a big company but it's still private, so the culture is as good as it gets at 10+ employees if you ask me.",
-      achievements: [
-        "Developed a cloud-based CRM system for a real estate company",
-        "Created an e-commerce platform with payment integration",
-        "Built data analytics dashboards for business intelligence",
-        "Implemented secure authentication systems using OAuth and JWT",
-      ],
+        "Built responsive web applications and improved user experience across multiple client projects. Collaborated with design teams to implement pixel-perfect interfaces.",
+      technologies: ["React", "JavaScript", "CSS3", "HTML5", "Git"],
     },
     {
-      id: 3,
-      role: "Junior Software Engineer",
-      company: "Freelancing",
-      logo: Briefcase,
-      period: "2018 - 2021",
-      location: "Remote",
+      title: "Junior Developer",
+      company: "StartupCo",
+      period: "2019 - 2020",
       description:
-        "Work in different projects ranging from beautiful experience to scalable and distributed backend syetems. There are a lot of interesting thing to learn and manager respect your time and your personality.",
-      achievements: [
-        "Worked with a diverse range of clients, delivering tailored design solutions",
-        "Developed and maintained strong client relationships through effective communication",
-        "Utilized tools such as Notion for project tracking and GitHub for version control",
-      ],
+        "Started my professional journey building web applications and learning modern development practices. Contributed to various projects and gained valuable experience.",
+      technologies: ["JavaScript", "PHP", "MySQL", "Bootstrap"],
     },
-  ];
+  ]
 
   return (
-    <section id="experience" className="mt-10 sm:mt-14">
-      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">
-        Work experience
-      </h2>
+    <section id="experience" className="py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Experience</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            My professional journey in software development and the technologies I&apos;ve worked with.
+          </p>
+        </div>
 
-      <div>
-        {experiences.map((experience) => (
-          <div key={experience.id} className="group relative flex gap-x-5">
-            <div className="relative group-last:after:hidden after:absolute after:top-8 after:bottom-2 after:start-3 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-neutral-700">
-              <div className="relative z-10 size-6 flex justify-center items-center">
-                {typeof experience.logo === "string" ? (
-                  <Image
-                    width={40}
-                    height={40}
-                    src={experience.logo || "/placeholder.svg"}
-                    alt={experience.company}
-                    className="shrink-0 size-6 text-gray-600 dark:text-neutral-400"
-                  />
-                ) : (
-                  React.createElement(experience.logo, {
-                    className:
-                      "shrink-0 size-6 text-gray-600 dark:text-neutral-400",
-                  })
-                )}
-              </div>
-            </div>
-
-            <div className="grow pb-8 group-last:pb-0">
-              <h3 className="mb-1 text-xs text-gray-600 dark:text-neutral-400">
-                {experience.period}
-              </h3>
-
-              <p className="font-semibold text-sm text-gray-800 dark:text-neutral-200">
-                {experience.role} at {experience.company}
-              </p>
-
-              <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-                {experience.description}
-              </p>
-
-              <ul className="list-disc ms-6 mt-3 space-y-1.5">
-                {experience.achievements.map((achievement, i) => (
-                  <li
-                    key={i}
-                    className="ps-1 text-sm text-gray-600 dark:text-neutral-400"
-                  >
-                    {achievement}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+        <div className="space-y-8">
+          {experiences.map((exp, index) => (
+            <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+              <CardHeader>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div>
+                    <CardTitle className="text-xl text-gray-900">{exp.title}</CardTitle>
+                    <div className="flex items-center gap-2 text-gray-600 mt-1">
+                      <Building className="h-4 w-4" />
+                      <span>{exp.company}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-500">
+                    <Calendar className="h-4 w-4" />
+                    <span className="text-sm">{exp.period}</span>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">{exp.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.technologies.map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="secondary" className="text-xs">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
-  );
+  )
 }

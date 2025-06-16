@@ -1,60 +1,71 @@
-import { Mail, Twitter, Globe } from "lucide-react";
-export default function About() {
+import { Card, CardContent } from "@/components/ui/card"
+import { Code, Database, Globe, Smartphone } from "lucide-react"
+
+export function AboutSection() {
+  const skills = [
+    {
+      icon: <Code className="h-6 w-6" />,
+      title: "Frontend Development",
+      description: "React, Next.js, TypeScript, Tailwind CSS",
+    },
+    {
+      icon: <Database className="h-6 w-6" />,
+      title: "Backend Development",
+      description: "Node.js, Prisma, PostgreSQL, MongoDB",
+    },
+    {
+      icon: <Globe className="h-6 w-6" />,
+      title: "Full Stack",
+      description: "End-to-end application development",
+    },
+    {
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "Mobile Development",
+      description: "React Native, Progressive Web Apps",
+    },
+  ]
+
   return (
-    <section className="mb-12 mt-4 shadow-none border-0 text-sm">
-      <div className="pt-6">
-        <h2 className="text-xl font-semibold mb-4">About Me</h2>
+    <section id="about" className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            I&apos;m a passionate fullstack engineer with expertise in modern web technologies. I love creating efficient,
+            scalable solutions and bringing ideas to life through code.
+          </p>
+        </div>
 
-        <p className="text-muted-foreground mb-4">
-          I am a seasoned Full Stack Engineer with expertise in building
-          microservices using Golang, cloud services (AWS, GCP), and modern web
-          technologies. My passion lies in creating scalable, efficient systems
-          that solve real-world problems.
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {skills.map((skill, index) => (
+            <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+              <CardContent className="p-6 text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                  {skill.icon}
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">{skill.title}</h3>
+                <p className="text-sm text-gray-600">{skill.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-        <p className="text-muted-foreground">
-          Currently, I work as the Lead Engineer at African Real Estate, where
-          I&apos;ve implemented microservices architecture using AWS services,
-          resulting in improved scalability and performance. I&apos;ve helped
-          grow the platform from zero to over 100 agents in just 6 months,
-          significantly increasing revenue and improving SEO rankings.
-        </p>
+        <div className="bg-white rounded-2xl p-8 shadow-sm">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h3>
+          <div className="prose prose-lg max-w-none text-gray-600">
+            <p>
+              As a fullstack engineer at african-realestate.com, I work on building comprehensive real estate solutions
+              that connect buyers, sellers, and agents across Africa. My role involves developing both client-facing
+              applications and robust backend systems.
+            </p>
+            <p>
+              I specialize in modern web technologies including React, Next.js, and Node.js, with a strong focus on
+              creating performant, user-friendly applications. I&apos;m passionate about clean code, best practices, and
+              continuous learning in the ever-evolving tech landscape.
+            </p>
+          </div>
+        </div>
       </div>
-      <ul className="mt-5 flex flex-col gap-y-3">
-        <li className="flex items-center gap-x-2.5">
-          <Mail className="shrink-0 size-3.5 text-gray-800 dark:text-neutral-200" />
-          <a
-            className="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none dark:text-neutral-500 dark:hover:text-neutral-400"
-            href="mailto:kenmwangi071@gmail.com"
-          >
-            kenmwangi071@gmail.com
-          </a>
-        </li>
-
-        <li className="flex items-center gap-x-2.5">
-          <Twitter className="shrink-0 size-3.5 text-gray-800 dark:text-neutral-200" />
-          <a
-            className="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none dark:text-neutral-500 dark:hover:text-neutral-400"
-            href="https://twitter.com/ken_cipher"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @kenmwangi
-          </a>
-        </li>
-
-        <li className="flex items-center gap-x-2.5">
-          <Globe className="shrink-0 size-3.5 text-gray-800 dark:text-neutral-200" />
-          <a
-            className="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none dark:text-neutral-500 dark:hover:text-neutral-400"
-            href="https://www.african-realestate.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            african-realestate.com
-          </a>
-        </li>
-      </ul>
     </section>
-  );
+  )
 }
