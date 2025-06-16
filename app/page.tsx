@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F7F7F8]">
-      <div className="flex">
+      <div className="">
         {/* <Sidebar /> */}
-        <div className="flex-1">
+        <div className="">
           <MainContent />
           <Footer />
         </div>
