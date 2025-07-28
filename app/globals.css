@@ -44,15 +44,36 @@
 }
 
 :root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 20%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 20%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 20%;
+
+  --primary: 16 100% 56%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 20%;
+
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
+
+  --accent: 0 0% 96%;
+  --accent-foreground: 0 0% 20%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.579 0.247 19.55);
+  --primary-foreground: oklch(0.961 0.005 24.89);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -85,8 +106,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.577 0.247 19.55);
+  --primary-foreground: oklch(0.961 0.005 24.89);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -119,4 +140,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.rose-gradient {
+  background: #f8f9fa;
+  background: radial-gradient(
+    circle,
+    rgba(248, 249, 250, 1) 0%,
+    rgba(240, 242, 247, 1) 86%,
+    rgba(246, 59, 118, 0.3) 100%
+  );
+}
+
+.dark .rose-gradient {
+  background: radial-gradient(
+    circle,
+    rgba(23, 23, 23, 0) 0%,
+    rgba(20, 17, 10, 0.2) 86%,
+    rgba(204, 27, 89, 0.52) 100%
+  );
 }
