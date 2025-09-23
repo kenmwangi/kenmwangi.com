@@ -1,9 +1,10 @@
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-const contactEmail =
+export const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL || "ken@kenmwangi.com";
-const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+254700000000";
+export const contactPhone =
+  process.env.NEXT_PUBLIC_CONTACT_PHONE || "+254700000000";
 
 export const seoConfig = {
   siteName: "Ken Mwangi",
@@ -39,50 +40,137 @@ export const seoConfig = {
       "Backend Engineer specialized in Python, Golang, Docker, Kubernetes, microservices, and cloud architecture.",
     ogType: "website",
   },
+
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ken Mwangi",
+    jobTitle: "Backend Engineer",
+    description:
+      "Backend Engineer specialized in Python, Golang, Docker, Kubernetes, microservices, and cloud architecture.",
+    url: siteUrl,
+    image: `${siteUrl}/ken-mwangi.jpeg`,
+    email: contactEmail,
+    telephone: contactPhone,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nairobi",
+      addressCountry: "Kenya",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "African Real Estate",
+    },
+    knowsAbout: [
+      "Python",
+      "Golang",
+      "Docker",
+      "Kubernetes",
+      "Microservices",
+      "Cloud Computing",
+      "AWS",
+      "Backend Development",
+      "Software Engineering",
+    ],
+    sameAs: [
+      process.env.NEXT_PUBLIC_GITHUB || "",
+      process.env.NEXT_PUBLIC_LINKEDIN || "",
+      process.env.NEXT_PUBLIC_TWITTER || "",
+    ].filter(Boolean),
+  },
 };
 
-// ✅ SEO Metadata Generator
 export function generateSeoMetadata({
   title,
   description,
   url,
   image,
   type = "website",
+  keywords,
+  publishedTime,
+  modifiedTime,
 }: {
   title: string;
   description?: string;
   url?: string;
   image?: string;
   type?: string;
+  keywords?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }) {
   const metaTitle = title
     ? seoConfig.defaults.titleTemplate.replace("%s", title)
     : seoConfig.siteName;
 
+  const finalUrl = url || siteUrl;
+  const finalImage = image || `${siteUrl}${seoConfig.defaultOgImage}`;
+
   return {
     title: metaTitle,
     description: description || seoConfig.siteDescription,
+    keywords: keywords || seoConfig.siteKeywords,
+    authors: [{ name: seoConfig.siteName, url: siteUrl }],
+    creator: seoConfig.siteName,
+    publisher: seoConfig.siteName,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    alternates: {
+      canonical: finalUrl,
+    },
     openGraph: {
       title: metaTitle,
       description: description || seoConfig.siteDescription,
-      url: url || siteUrl,
+      url: finalUrl,
       siteName: seoConfig.siteName,
       images: [
         {
-          url: image || `${siteUrl}${seoConfig.defaultOgImage}`,
+          url: finalImage,
           width: 1200,
           height: 630,
           alt: title,
         },
       ],
       type,
+      locale: seoConfig.siteLocale,
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
     },
     twitter: {
       card: "summary_large_image",
       title: metaTitle,
       description: description || seoConfig.siteDescription,
-      images: [image || `${siteUrl}${seoConfig.defaultOgImage}`],
+      images: [finalImage],
       creator: seoConfig.social.twitter,
+      site: seoConfig.social.twitter,
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+      bing: process.env.NEXT_PUBLIC_BING_VERIFICATION,
+    },
+  };
+}
+
+export function generateStructuredData(
+  additionalData?: Record<string, unknown>
+) {
+  return {
+    ...seoConfig.structuredData,
+    ...additionalData,
   };
 }

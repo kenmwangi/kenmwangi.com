@@ -1,7 +1,14 @@
+import type React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { generateSeoMetadata, seoConfig, siteUrl } from "@/lib/seo";
+import {
+  generateSeoMetadata,
+  generateStructuredData,
+  seoConfig,
+  siteUrl,
+} from "@/lib/seo";
+import { ThemeProvider } from "@/components/themes/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +26,26 @@ export const metadata: Metadata = {
     description: seoConfig.siteDescription,
     url: siteUrl,
     image: seoConfig.defaultOgImage,
+    keywords: seoConfig.siteKeywords,
   }),
-  metadataBase: new URL(siteUrl), // 👈 fixes the warning
+  metadataBase: new URL(siteUrl),
+  category: "technology",
+  classification: "Portfolio",
+  referrer: "origin-when-cross-origin",
+
+  manifest: "/manifest.json",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": 10,
+      "max-image-preview": "large", // changed from string to allowed literal
+      "max-snippet": 10,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -28,9 +53,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = generateStructuredData();
+
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className={`font-sans antialiased`}>{children}</body>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </head>
+      <body className={`font-sans antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
