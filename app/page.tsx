@@ -7,16 +7,13 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
+  const [isDark, setIsDark] = useState(true);
   const [activeSection, setActiveSection] = useState("");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
-  // useEffect(() => {
-  //   document.documentElement.classList.toggle("dark", isDark);
-  // }, [isDark]);
-
   useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,6 +34,10 @@ export default function Home() {
 
     return () => observer.disconnect();
   }, []);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
@@ -431,7 +432,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
               <button
                 onClick={toggleTheme}
                 className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300"
@@ -459,7 +460,7 @@ export default function Home() {
                   </svg>
                 )}
               </button>
-            </div> */}
+            </div>
           </div>
         </footer>
       </main>
