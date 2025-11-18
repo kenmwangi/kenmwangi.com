@@ -8,9 +8,6 @@ import {
   seoConfig,
   siteUrl,
 } from "@/lib/seo";
-import { ThemeProvider } from "@/components/themes/theme-provider";
-import TopBar from "@/components/home/topbar";
-import Footer from "@/components/layout/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,20 +68,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`font-sans antialiased min-h-screeen bg-black text-[#ddffdc]`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TopBar />
-          {children}
-          <Footer />
-        </ThemeProvider>
-      </body>
+      <body className={`font-sans antialiased min-h-screeen`}>{children}</body>
     </html>
   );
 }
