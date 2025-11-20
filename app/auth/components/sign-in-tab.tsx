@@ -1,0 +1,97 @@
+"use client";
+import { useForm } from "react-hook-form";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
+import { Button } from "@/components/ui/button";
+import { LoadingSwap } from "@/components/ui/loading-swap";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+
+const signInSchema = z.object({
+  email: z.email().min(1, { message: "Email is required" }),
+
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters long" }),
+});
+
+type SignInSchemaType = z.infer<typeof signInSchema>;
+export default function SignInTab() {
+  const form = useForm<SignInSchemaType>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const { isSubmitting } = form.formState;
+
+  const router = useRouter();
+
+  const handleSignIn = async (data: SignInSchemaType) => {
+    await authClient.signIn.email(
+      {
+        ...data,
+        callbackURL: "/",
+      },
+      {
+        onError: (error) => {
+          toast.error(error.error.message || "Failed to sign up");
+        },
+        onSuccess: () => {
+          router.push("/");
+        },
+      }
+    );
+    console.log(data);
+  };
+  return (
+    <Form {...form}>
+      <form className="space-y-4" onSubmit={form.handleSubmit(handleSignIn)}>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <PasswordInput {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button type="submit" className="w-full" size="lg">
+          <LoadingSwap isLoading={isSubmitting}>Sign In</LoadingSwap>
+        </Button>
+      </form>
+    </Form>
+  );
+}

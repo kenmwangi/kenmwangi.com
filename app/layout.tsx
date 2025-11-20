@@ -8,6 +8,7 @@ import {
   seoConfig,
   siteUrl,
 } from "@/lib/seo";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,7 +69,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased min-h-screeen`}>{children}</body>
+      <body className={`font-sans antialiased min-h-screeen`}>
+        {children}
+
+        <Toaster />
+      </body>
     </html>
   );
 }
