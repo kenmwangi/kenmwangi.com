@@ -2,13 +2,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { authClient } from "@/lib/auth-client";
 import { Camera, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
@@ -67,35 +61,6 @@ export default function HomeDisplay() {
               </div>
             </div>
           </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Personal Information</CardTitle>
-          <CardDescription>
-            Update your personal details and profile information.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {session === null ? (
-            <>
-              <Button asChild size="lg">
-                <Link href="/auth/login">Sign in</Link>
-              </Button>
-            </>
-          ) : (
-            <>
-              <h1>Welcome, {session.user.name}</h1>
-              <Button
-                size="lg"
-                variant="destructive"
-                onClick={() => authClient.signOut()}
-              >
-                Sign out
-              </Button>
-            </>
-          )}
         </CardContent>
       </Card>
     </>
