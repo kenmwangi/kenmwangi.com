@@ -2,12 +2,15 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SignUpTab from "../components/sign-up-tab";
 import SignInTab from "../components/sign-in-tab";
+import { Separator } from "@/components/ui/separator";
+import SocialAuthButton from "../components/social-auth-button";
 
 export default function LoginPage() {
   return (
@@ -17,8 +20,8 @@ export default function LoginPage() {
           <TabsTrigger value="signin">Sign in</TabsTrigger>
           <TabsTrigger value="signup">Sign up</TabsTrigger>
         </TabsList>
-        <Card>
-          <TabsContent value="signin" className="space-y-6">
+        <TabsContent value="signin" className="space-y-6">
+          <Card>
             <CardHeader className="text-2xl font-bold">
               <CardTitle>Sign in</CardTitle>
               <CardDescription>
@@ -28,9 +31,17 @@ export default function LoginPage() {
             <CardContent>
               <SignInTab />
             </CardContent>
-          </TabsContent>
 
-          <TabsContent value="signup" className="space-y-6">
+            <Separator />
+
+            <CardFooter>
+              <SocialAuthButton />
+            </CardFooter>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="signup" className="space-y-6">
+          <Card>
             <CardHeader className="text-2xl font-bold">
               <CardTitle>Sign up</CardTitle>
               <CardDescription>Create an account</CardDescription>
@@ -38,8 +49,8 @@ export default function LoginPage() {
             <CardContent>
               <SignUpTab />
             </CardContent>
-          </TabsContent>
-        </Card>
+          </Card>
+        </TabsContent>
       </Tabs>
     </main>
   );

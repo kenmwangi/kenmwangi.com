@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cal_Sans as FontHeading, Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import {
   generateSeoMetadata,
@@ -10,14 +10,15 @@ import {
 } from "@/lib/seo";
 import { Toaster } from "sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontSans = FontSans({
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontHeading = FontHeading({
   subsets: ["latin"],
+  variable: "--font-heading",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -56,11 +57,7 @@ export default function RootLayout({
   const structuredData = generateStructuredData();
 
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -69,7 +66,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased min-h-screeen`}>
+      <body
+        className={`${fontSans.variable} ${fontHeading.variable} font-sans tracking-[-0.25px] antialiased`}
+      >
         {children}
 
         <Toaster />
