@@ -9,6 +9,9 @@ import {
   siteUrl,
 } from "@/lib/seo";
 import { Toaster } from "sonner";
+import TopBanner from "@/components/home/topbar";
+import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/header";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -68,8 +71,20 @@ export default function RootLayout({
       </head>
       <body
         className={`${fontSans.variable} ${fontHeading.variable} font-sans tracking-[-0.25px] antialiased`}
+        data-new-gr-c-s-check-loaded="14.1263.0"
+        data-gr-ext-installed=""
+        cz-shortcut-listen="true"
       >
-        {children}
+        <TopBanner />
+        <div className="overflow-hidden px-4 has-data-home:bg-zinc-50 has-not-data-home:before:absolute has-not-data-home:before:inset-x-0 has-not-data-home:before:h-100 has-not-data-home:before:bg-linear-to-b has-not-data-home:before:from-zinc-100 supports-[overflow:clip]:overflow-clip sm:px-6 dark:has-data-home:bg-zinc-950 dark:has-not-data-home:before:hidden">
+          <div className="before:-left-12 after:-right-12 relative mx-auto w-full max-w-6xl before:absolute before:inset-y-0 before:w-px before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:inset-y-0 after:w-px after:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
+            <div className="relative flex min-h-screen flex-col">
+              <Header />
+              <main className="grow">{children}</main>
+              <Footer />
+            </div>
+          </div>
+        </div>
 
         <Toaster />
       </body>

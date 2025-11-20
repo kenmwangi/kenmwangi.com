@@ -1,17 +1,13 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-
-export default function TopBar() {
+export default function TopBanner() {
   return (
-    <section className="bg-[#7fee46] flex flex-col justify-center px-4 py-2 text-sm font-medium text-black sm:flex-row">
-      <div className="flex flex-col sm:flex-row sm:gap-x-2">
-        <span>Developing this portfolio one step at a time.</span>
-        <span className="flex items-center gap-x-1">
-          <Link href="/blog" className="underline">
-            Read more
-          </Link>
-          <ArrowRight className="size-4" />
-        </span>
+    <section className="bg-neutral-50 px-4 py-3 md:py-2">
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+        <p className="text-sm">
+          <span className="font-medium">v1.0</span>
+          <span className="text-muted-foreground mx-2">
+            New features and improvements coming soon
+          </span>
+        </p>
       </div>
     </section>
   );
