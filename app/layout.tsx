@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
   generateSeoMetadata,
@@ -13,7 +13,7 @@ import TopBanner from "@/components/home/topbar";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-const geistSans = Inter({
+const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
