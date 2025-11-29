@@ -75,7 +75,7 @@ export default function RootLayout({
         cz-shortcut-listen="true"
       >
         <TopBanner />
-        <div className="overflow-hidden px-4 has-not-data-home:before:absolute has-not-data-home:before:inset-x-0 has-not-data-home:before:h-100 has-not-data-home:before:bg-linear-to-b  supports-[overflow:clip]:overflow-clip sm:px-6 dark:has-not-data-home:before:hidden">
+        <div className="overflow-hidden has-not-data-home:before:absolute has-not-data-home:before:inset-x-0 has-not-data-home:before:h-100 has-not-data-home:before:bg-linear-to-b  supports-[overflow:clip]:overflow-clip dark:has-not-data-home:before:hidden">
           <div className="before:-left-12 after:-right-12 relative mx-auto w-full before:absolute before:inset-y-0 before:w-px before:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:inset-y-0 after:w-px after:bg-[linear-gradient(to_bottom,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))]">
             <div className="relative flex min-h-screen flex-col">
               <Header />

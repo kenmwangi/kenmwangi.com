@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProfileAvatar from "./profile-avatar";
 import ProfileBadge from "./profile-badge";
+import React from "react";
 
 const user = {
   name: "Ken Mwangi",
@@ -18,7 +19,7 @@ const user = {
 export default function Profile() {
   return (
     <section className="border-b bg-white">
-      <div className=" max-w-6xl mx-auto py-6 md:py-8 flex flex-col lg:flex-row lg:items-center gap-6">
+      <div className=" max-w-6xl mx-auto px-4 py-6 md:py-8 flex flex-col lg:flex-row lg:items-center gap-6">
         <ProfileAvatar src={user.avatar} alt="Ken Mwangi" size={64} />
         <div>
           <div className="flex items-center gap-2">
@@ -33,10 +34,10 @@ export default function Profile() {
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
             {user.links.map((link, index) => {
               return (
-                <>
+                <React.Fragment key={index}>
                   <Link
                     href={link.href}
-                    key={link.href}
+                    // key={link.href}
                     className="hover:underline"
                   >
                     {link.label}
@@ -46,7 +47,7 @@ export default function Profile() {
                       &middot;
                     </span>
                   ) : null}
-                </>
+                </React.Fragment>
               );
             })}
           </div>
