@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Cal_Sans as FontHeading, Inter as FontSans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
   generateSeoMetadata,
@@ -13,15 +13,14 @@ import TopBanner from "@/components/home/topbar";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-const fontSans = FontSans({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  variable: "--font-sans",
 });
 
-const fontHeading = FontHeading({
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  variable: "--font-heading",
-  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -70,7 +69,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${fontSans.variable} ${fontHeading.variable} font-sans tracking-[-0.25px] antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans tracking-[-0.25px] antialiased`}
         data-new-gr-c-s-check-loaded="14.1263.0"
         data-gr-ext-installed=""
         cz-shortcut-listen="true"
