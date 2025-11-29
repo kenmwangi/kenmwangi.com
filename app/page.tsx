@@ -1,9 +1,9 @@
-import HomeDisplay from "./home-display";
+import Profile from "@/components/home/profile-section";
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10 space-y-6">
-      <HomeDisplay />
+    <div className="">
+      <Profile />
     </div>
   );
 }
