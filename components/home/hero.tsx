@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
 import HeroTabs from "./hero-tabs";
-import { Card, CardContent } from "./hero-card";
-import Image from "next/image";
-import ProfileBadge from "./profile-badge";
 const feed = [
   {
     title: "Charts of the Week: Code Gen Strikes Back",
@@ -77,7 +74,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto py-8 px-4">
+      {/* <section className="max-w-6xl mx-auto py-8 px-4">
         <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {filteredFeed.map((feed) => {
             return (
@@ -105,7 +102,7 @@ export default function Hero() {
             );
           })}
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
