@@ -19,7 +19,7 @@ const user = {
 export default function Profile() {
   return (
     <section className="border-b bg-white">
-      <div className=" max-w-6xl mx-auto px-4 py-6 md:py-8 flex flex-col lg:flex-row lg:items-center gap-6">
+      <div className=" max-w-6xl mx-auto px-4 py-6 md:py-10 flex flex-col lg:flex-row lg:items-center gap-6">
         <ProfileAvatar src={user.avatar} alt="Ken Mwangi" size={64} />
         <div>
           <div className="flex items-center gap-2">
