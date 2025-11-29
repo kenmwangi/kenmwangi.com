@@ -48,7 +48,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     key={link.href}
-                    className="hover:underline"
+                    className="hover:underline underline-offset-2"
                   >
                     {link.title}
                   </Link>

@@ -38,7 +38,7 @@ export default function Profile() {
                   <Link
                     href={link.href}
                     // key={link.href}
-                    className="hover:underline"
+                    className="hover:underline underline-offset-2"
                   >
                     {link.label}
                   </Link>
